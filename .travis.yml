@@ -4,4 +4,4 @@ python:
 
 # command to run tests
 script:
- - python -m unittest TestRepocommits
+ - python -m unittest test_hw4a
