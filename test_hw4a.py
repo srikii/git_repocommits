@@ -5,7 +5,7 @@ import urllib.request
 import urllib.parse
 import urllib.error
 import json
-import requests
+#import requests
 import unittest
 from hw4a import git_repocommits
 
