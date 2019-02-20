@@ -1,3 +1,6 @@
+"""program to read the number od repositories in a given username and also the number of commits for each repository
+    author: srikanth"""
+    
 import urllib.request
 import urllib.parse
 import urllib.error
@@ -8,7 +11,7 @@ import ssl
 
 def git_repocommits(n):
     git_name=n
-    git_url= f"https://api.github.com/users/{git_name}/repos"
+    git_url= "https://api.github.com/users/{}/repos".format(git_name)
     uh = urllib.request.urlopen(git_url)
     data = uh.read().decode()
 
@@ -27,7 +30,7 @@ def git_repocommits(n):
     l2=list()
 
     for i in l1:
-        repo_url=f"https://api.github.com/repos/{git_name}/{i}/commits"
+        repo_url="https://api.github.com/repos/{}/{}/commits".format(git_name, i)
         uh2 = urllib.request.urlopen(repo_url)
         data2 = uh2.read().decode()
         try:
@@ -47,10 +50,9 @@ def main():
 
     n=input("enter the GitHub user name: \n")
     g=git_repocommits(n)
-    #print(g)
+    
 
 
 if __name__ == '__main__':
-    #unittest.main(exit=False, verbosity=2)
     main()
 
